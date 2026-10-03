@@ -1,39 +1,125 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf8f4;
-  --foreground: #16140f;
+  /* Architectural palette — warm ivory / charcoal / stone / restrained brass */
+  --color-ivory: #f3efe6;
+  --color-ivory-dim: #eae4d6;
+  --color-ink: #0c0b09;
+  --color-ink-soft: #17140f;
+  --color-stone: #716b5e;
+  --color-stone-light: #a79f8e;
+  --color-brass: #a9793c;
+  --color-brass-dim: #8a6530;
+  --color-line: rgba(12, 11, 9, 0.12);
+  --color-line-on-dark: rgba(243, 239, 230, 0.14);
 
-  --color-ink: #16140f;
-  --color-ink-soft: #4a463d;
-  --color-paper: #faf8f4;
-  --color-paper-dim: #f1ede3;
-  --color-brass: #9c7a3c;
-  --color-brass-dark: #7c5f2b;
-  --color-brass-light: #c9a662;
-  --color-line: #e2dccb;
+  --background: var(--color-ivory);
+  --foreground: var(--color-ink);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-ivory: var(--color-ivory);
+  --color-ivory-dim: var(--color-ivory-dim);
   --color-ink: var(--color-ink);
   --color-ink-soft: var(--color-ink-soft);
-  --color-paper: var(--color-paper);
-  --color-paper-dim: var(--color-paper-dim);
+  --color-stone: var(--color-stone);
+  --color-stone-light: var(--color-stone-light);
   --color-brass: var(--color-brass);
-  --color-brass-dark: var(--color-brass-dark);
-  --color-brass-light: var(--color-brass-light);
+  --color-brass-dim: var(--color-brass-dim);
   --color-line: var(--color-line);
+  --color-line-on-dark: var(--color-line-on-dark);
   --font-sans: var(--font-inter);
   --font-serif: var(--font-fraunces);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  font-feature-settings: "ss01" 1, "cv01" 1;
+}
+
+::selection {
+  background: var(--color-brass);
+  color: var(--color-ink);
 }
 
 .text-balance {
   text-wrap: balance;
+}
+
+/* Tracked-out editorial label, used for eyebrows / metadata everywhere */
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+/* Hairline rule */
+.rule {
+  height: 1px;
+  background: var(--color-line);
+}
+.rule-dark {
+  height: 1px;
+  background: var(--color-line-on-dark);
+}
+
+/* Editorial link-style CTA: text + underline that grows from the left */
+.link-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding-bottom: 0.4rem;
+}
+.link-cta::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  opacity: 0.35;
+  transform-origin: left;
+  transition: opacity 0.4s ease;
+}
+.link-cta:hover::after {
+  opacity: 1;
+}
+.link-cta svg {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-cta:hover svg {
+  transform: translateX(5px);
+}
+
+/* Image hover scale wrapper */
+.img-hover {
+  overflow: hidden;
+}
+.img-hover img {
+  transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.img-hover:hover img {
+  transform: scale(1.045);
+}
+
+@media (max-width: 640px) {
+  .img-hover:hover img {
+    transform: none;
+  }
 }

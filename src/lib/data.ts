@@ -4,6 +4,8 @@ export type Vertical = {
   tagline: string;
   summary: string;
   image: string;
+  accentImage?: string;
+  since: string;
   stats?: { label: string; value: string }[];
 };
 
@@ -11,10 +13,12 @@ export const verticals: Vertical[] = [
   {
     slug: "real-estate",
     name: "Real Estate",
-    tagline: "Where it all began, in 1960.",
+    tagline: "Where it all began.",
     summary:
-      "Residential, commercial, retail, SRA and society redevelopment across Mumbai, Pune, Delhi and Goa — delivered through three distinct brands: Kamala, Orra, Sogo and Privé.",
+      "Residential, commercial, retail, SRA and society redevelopment across Mumbai, Pune, Delhi and Goa — delivered through four distinct brands: Kamala, Orra, Sogo and Privé.",
     image: "/images/hero-times-tower.jpg",
+    accentImage: "/images/kanti-apartment.jpg",
+    since: "1960",
     stats: [
       { label: "Residential projects delivered", value: "100+" },
       { label: "Development in Central Mumbai", value: "20M+ sq.ft" },
@@ -28,6 +32,7 @@ export const verticals: Vertical[] = [
     summary:
       "Green Plant Energy Pvt. Ltd. (GPEL) and MPPL Renewable Energy generate biomass power from agricultural waste, turning rural Punjab and Karnataka's farm residue into firm, clean electricity.",
     image: "/images/power-plant.jpg",
+    since: "2011",
     stats: [
       { label: "Biomass power capacity", value: "4.5 MW" },
       { label: "First in the world", value: "Gold Standard Carbon Credits" },
@@ -39,7 +44,9 @@ export const verticals: Vertical[] = [
     tagline: "A new chapter in guest experience.",
     summary:
       "Kamala Hospitality's own Gstar brand and strategic tie-ups with internationally renowned hotel operators, bringing curated stays to Mumbai and Goa.",
-    image: "/images/vertical-hospitality.jpg",
+    image: "/images/interior-lobby.jpg",
+    accentImage: "/images/vertical-hospitality.jpg",
+    since: "2013",
   },
   {
     slug: "fashion",
@@ -47,7 +54,9 @@ export const verticals: Vertical[] = [
     tagline: "Gabbana — tailoring, elevated.",
     summary:
       "Exclusive studios offering fine international tailoring and fabrics — Gabbana has dressed some of India's most recognised names.",
-    image: "/images/vertical-fashion.jpg",
+    image: "/images/gabbana-house.jpg",
+    accentImage: "/images/vertical-fashion.jpg",
+    since: "2009",
   },
   {
     slug: "hr-solutions",
@@ -56,6 +65,7 @@ export const verticals: Vertical[] = [
     summary:
       "RPO, search & selection, staff augmentation and HR process outsourcing, serving clients out of Mumbai, Gurgaon and Kolkata.",
     image: "/images/vertical-hr-solutions.jpg",
+    since: "2005",
     stats: [{ label: "Professionals placed", value: "1500+" }],
   },
   {
@@ -65,6 +75,7 @@ export const verticals: Vertical[] = [
     summary:
       "Business and leisure travel solutions backed by a dedicated team and award-winning airline partnerships.",
     image: "/images/vertical-tours-travels.jpg",
+    since: "2010",
   },
 ];
 
@@ -107,6 +118,8 @@ export type RealEstateBrand = {
   slug: string;
   name: string;
   region: string;
+  category: string;
+  year: string;
   description: string;
   image: string;
 };
@@ -115,7 +128,9 @@ export const realEstateBrands: RealEstateBrand[] = [
   {
     slug: "kamala",
     name: "Kamala",
-    region: "Lower Parel & Commercial Landmarks",
+    region: "Lower Parel, Mumbai",
+    category: "Commercial Landmarks",
+    year: "Est. 1960",
     description:
       "The brand that built Kamala City and the Trade World towers — turning a former mill compound in Lower Parel into one of Mumbai's most recognised corporate addresses, home to the Times of India, HDFC and more.",
     image: "/images/hero-times-tower.jpg",
@@ -123,7 +138,9 @@ export const realEstateBrands: RealEstateBrand[] = [
   {
     slug: "orra",
     name: "Orra",
-    region: "Western Suburbs",
+    region: "Bandra to Borivali",
+    category: "Luxury Residential",
+    year: "Western Suburbs",
     description:
       "Positioned as one of the finest luxury brands in realty — Orra signifies richness and opulence, with towers dotting the skyline between Bandra and Borivali.",
     image: "/images/orra-tower.jpg",
@@ -131,7 +148,9 @@ export const realEstateBrands: RealEstateBrand[] = [
   {
     slug: "sogo",
     name: "Sogo",
-    region: "Central & Eastern Suburbs",
+    region: "Chembur to Thane",
+    category: "Redevelopment & SRA",
+    year: "Central & Eastern Suburbs",
     description:
       "Sogo Infrastructure focuses on redevelopment and slum rehabilitation across Chembur, Ghatkopar, Mulund, Kurla and Thane — proof that affordability never compromises quality.",
     image: "/images/sogo-tower.jpg",
@@ -139,7 +158,9 @@ export const realEstateBrands: RealEstateBrand[] = [
   {
     slug: "prive",
     name: "Privé",
-    region: "Goa",
+    region: "Panjim & Dona Paula",
+    category: "Resort & Residential",
+    year: "Goa",
     description:
       "Goa's freshest wave of realty — ultra-luxury homes, villas, commercial landmarks and retail malls in one of India's most loved destinations.",
     image: "/images/prive-goa.jpg",
@@ -188,44 +209,51 @@ export type Milestone = {
   year: string;
   title: string;
   description: string;
+  image?: string;
 };
 
 export const milestones: Milestone[] = [
   {
     year: "1960",
-    title: "The foundation is laid",
+    title: "The beginning",
     description:
       "Late Shri Ghamandiram Gowani founds Kamala Group, envisioning a structured, honest real estate industry in a Mumbai that had barely imagined one.",
+    image: "/images/founder-portrait.jpg",
   },
   {
     year: "1960s–70s",
-    title: "Prithvi rises on Altamount Road",
+    title: "Landmark developments",
     description:
-      "Kamala delivers one of Mumbai's first high-rises, setting the tone for every project that follows.",
+      "Kamala delivers 'Prithvi' — one of Mumbai's first high-rises on Altamount Road — setting the tone for every project that follows.",
+    image: "/images/kanti-apartment.jpg",
   },
   {
     year: "2000s",
     title: "Kamala Mills becomes Kamala City",
     description:
       "A first-of-its-kind conversion of mill land in Lower Parel into Trade World A, B and C and Times Tower — now home to the Times of India, HDFC, Welspun and more.",
+    image: "/images/hero-times-tower.jpg",
   },
   {
     year: "2000s–2010s",
-    title: "Three brands, three promises",
+    title: "Four brands, four promises",
     description:
       "Orra (Western Suburbs luxury), Sogo (redevelopment & SRA) and Privé (Goa) launch, taking Kamala's real estate expertise beyond South Mumbai.",
+    image: "/images/orra-tower.jpg",
   },
   {
-    year: "Diversification",
-    title: "Beyond real estate",
+    year: "2005–2013",
+    title: "Expansion beyond real estate",
     description:
       "The Group builds new verticals from the ground up: GPEL in renewable power, Gabbana in fashion, S2 Infotech in HR solutions, CR Travels in tourism, and Gstar in hospitality.",
+    image: "/images/interior-lobby.jpg",
   },
   {
     year: "Today",
-    title: "65+ years, ISO 9001 certified, 100% debt-free",
+    title: "65+ years, built on principles",
     description:
-      "Over 100 residential and commercial projects delivered across Mumbai, Pune, Delhi and Goa — still built on the same three words the Group was founded on.",
+      "Over 100 residential and commercial projects delivered across Mumbai, Pune, Delhi and Goa — ISO 9001 certified, 100% debt-free, still built on the same three words the Group was founded on.",
+    image: "/images/mumbai-gateway.jpg",
   },
 ];
 
@@ -361,6 +389,15 @@ export const completedProjects: ProjectGroup[] = [
       "Empire Boulevard, Bambolim (Goa)",
     ],
   },
+];
+
+export const heroStat = { value: "65+", label: "Years" };
+
+export const supportingStats: { value: string; label: string }[] = [
+  { value: "100+", label: "Projects delivered" },
+  { value: "20M+", label: "Sq. ft. developed" },
+  { value: "6", label: "Business verticals" },
+  { value: "100%", label: "Debt-free" },
 ];
 
 export const contact = {

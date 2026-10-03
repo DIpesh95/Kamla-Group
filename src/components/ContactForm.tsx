@@ -3,6 +3,9 @@
 import { FormEvent, useState } from "react";
 import { contact } from "@/lib/data";
 
+const fieldClass =
+  "w-full border-0 border-b border-line bg-transparent px-0 py-3 text-[15px] text-ink outline-none transition-colors placeholder:text-stone-light focus:border-brass";
+
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
 
@@ -15,17 +18,15 @@ export default function ContactForm() {
     const message = data.get("message")?.toString() ?? "";
 
     const subject = encodeURIComponent(`Website enquiry from ${name}`);
-    const body = encodeURIComponent(
-      `${message}\n\n— ${name}\n${email}`
-    );
+    const body = encodeURIComponent(`${message}\n\n— ${name}\n${email}`);
     window.location.href = `mailto:${contact.email}?subject=${subject}&body=${body}`;
     setSent(true);
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form onSubmit={handleSubmit} className="space-y-8">
       <div>
-        <label htmlFor="name" className="text-sm font-medium text-ink">
+        <label htmlFor="name" className="label text-stone">
           Full name
         </label>
         <input
@@ -33,12 +34,12 @@ export default function ContactForm() {
           name="name"
           type="text"
           required
-          className="mt-1.5 w-full rounded-lg border border-line bg-white px-4 py-3 text-sm text-ink outline-none focus:border-brass"
+          className={`${fieldClass} mt-2`}
           placeholder="Your name"
         />
       </div>
       <div>
-        <label htmlFor="email" className="text-sm font-medium text-ink">
+        <label htmlFor="email" className="label text-stone">
           Email address
         </label>
         <input
@@ -46,31 +47,46 @@ export default function ContactForm() {
           name="email"
           type="email"
           required
-          className="mt-1.5 w-full rounded-lg border border-line bg-white px-4 py-3 text-sm text-ink outline-none focus:border-brass"
+          className={`${fieldClass} mt-2`}
           placeholder="you@example.com"
         />
       </div>
       <div>
-        <label htmlFor="message" className="text-sm font-medium text-ink">
+        <label htmlFor="message" className="label text-stone">
           Message
         </label>
         <textarea
           id="message"
           name="message"
           required
-          rows={5}
-          className="mt-1.5 w-full rounded-lg border border-line bg-white px-4 py-3 text-sm text-ink outline-none focus:border-brass"
+          rows={4}
+          className={`${fieldClass} mt-2 resize-none`}
           placeholder="Tell us about your enquiry"
         />
       </div>
       <button
         type="submit"
-        className="w-full rounded-full bg-ink px-6 py-3 text-sm font-semibold text-paper transition-colors hover:bg-brass-dark"
+        className="group inline-flex items-center gap-3 bg-ink px-7 py-4 font-sans text-[11px] font-semibold tracking-[0.22em] text-ivory uppercase transition-colors duration-400 hover:bg-brass hover:text-ink"
       >
         Send Message
+        <svg
+          width="15"
+          height="11"
+          viewBox="0 0 16 16"
+          fill="none"
+          className="transition-transform duration-400 group-hover:translate-x-1"
+        >
+          <path
+            d="M1 8h13M9 2l6 6-6 6"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       </button>
       {sent && (
-        <p className="text-sm text-brass-dark">
+        <p className="text-sm text-brass">
           Your email app should have opened with this message pre-filled —
           just hit send.
         </p>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
+import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 const inter = Inter({
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s — Kamala Group",
   },
   description:
-    "Kamala Group is a Mumbai-based conglomerate with over 65 years in Real Estate, diversified into Power, Hospitality, Fashion, HR Solutions, and Tours & Travels.",
+    "Kamala Group is a Mumbai conglomerate shaping the city's skyline since 1960 — across Real Estate, Power, Hospitality, Fashion, HR Solutions and Tours & Travels.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -32,8 +32,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${inter.variable} ${fraunces.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-paper text-ink">
-        <Header />
+      <body className="min-h-full flex flex-col bg-ivory text-ink">
+        <Nav />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>
