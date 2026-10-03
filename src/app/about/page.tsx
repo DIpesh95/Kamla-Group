@@ -4,6 +4,7 @@ import PageIntro from "@/components/PageIntro";
 import Reveal from "@/components/Reveal";
 import SectionLabel from "@/components/SectionLabel";
 import Button from "@/components/Button";
+import BrandFilm from "@/components/BrandFilm";
 import { values } from "@/lib/data";
 
 export const metadata = {
@@ -74,6 +75,8 @@ export default function AboutPage() {
           </div>
         </Container>
       </section>
+
+      <BrandFilm />
 
       {/* Chairman — editorial op-ed style */}
       <section className="bg-ivory-dim py-24 sm:py-32">
