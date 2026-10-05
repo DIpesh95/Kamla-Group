@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { contact } from "@/lib/data";
 
@@ -7,7 +8,7 @@ const columns = [
     links: [
       { href: "/about", label: "About" },
       { href: "/verticals", label: "Businesses" },
-      { href: "/about#legacy", label: "Legacy" },
+      { href: "/#legacy", label: "Legacy" },
     ],
   },
   {
@@ -26,9 +27,19 @@ export default function Footer() {
       <div className="mx-auto max-w-[1440px] px-6 py-20 lg:px-12 lg:py-28">
         <div className="grid gap-16 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-6">
-            <span className="font-serif text-3xl tracking-tight text-ivory">
-              Kamala Group
-            </span>
+            <div className="flex items-center gap-3">
+              <span className="relative h-10 w-10 shrink-0">
+                <Image
+                  src="/images/logo-mark.png"
+                  alt="Kamala Group"
+                  fill
+                  className="object-contain"
+                />
+              </span>
+              <span className="font-serif text-3xl tracking-tight text-ivory">
+                Kamala Group
+              </span>
+            </div>
             <p className="label mt-3 text-brass">Built on Principles</p>
             <p className="mt-8 max-w-sm text-sm leading-relaxed text-ivory/50">
               A Mumbai conglomerate shaping the city&rsquo;s skyline since

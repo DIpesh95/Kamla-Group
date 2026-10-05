@@ -22,6 +22,23 @@ export default function AboutPage() {
         description="Three simple words, put together, became the foundation of one of Mumbai's most enduring business houses: Built on Principles."
       />
 
+      {/* Brand mark */}
+      <section className="bg-ivory pt-20 sm:pt-24">
+        <Container className="flex justify-center">
+          <Reveal>
+            <div className="relative h-32 w-52 sm:h-40 sm:w-64">
+              <Image
+                src="/images/logo-full.png"
+                alt="Kamala Group — Built on Principles"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+
       {/* Founder spread */}
       <section className="bg-ivory py-24 sm:py-32">
         <Container>

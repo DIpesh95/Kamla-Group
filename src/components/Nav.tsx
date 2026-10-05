@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -46,7 +47,15 @@ export default function Nav() {
             onClick={() => setOpen(false)}
             className="group flex items-center gap-2.5"
           >
-            <span className="h-[7px] w-[7px] bg-brass transition-transform duration-500 group-hover:scale-125" />
+            <span className="relative h-7 w-7 shrink-0 transition-transform duration-500 group-hover:scale-110">
+              <Image
+                src="/images/logo-mark.png"
+                alt=""
+                fill
+                className="object-contain"
+                priority
+              />
+            </span>
             <span className="font-sans text-[13px] font-semibold tracking-[0.3em] text-ivory uppercase">
               Kamala Group
             </span>
